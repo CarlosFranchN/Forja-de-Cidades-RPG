@@ -53,8 +53,8 @@ Para rodar este projeto localmente, você precisará ter o **Git** e o **Docker 
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/](https://github.com/)[SEU_NOME_DE_USUARIO]/[NOME_DO_SEU_REPOSITORIO].git
-    cd [NOME_DO_SEU_REPOSITORIO]
+    git clone https://github.com/CarlosFranchN/Forja-de-Cidades-RPG.git
+    cd https://github.com/CarlosFranchN/Forja-de-Cidades-RPG.git
     ```
 
 2.  **Configure suas credenciais:**
