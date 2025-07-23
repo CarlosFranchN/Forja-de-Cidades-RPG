@@ -1,0 +1,26 @@
+# .gitignore
+
+# Arquivos de segredos e ambiente
+# Ignora o .env principal e qualquer variação como .env.local
+.env
+.env.*
+
+# Ambiente Virtual Python
+# Este é o mais importante a adicionar! Evita o envio de centenas de MB de bibliotecas.
+venv/
+.venv/
+
+# Bytecode e cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Arquivos de configuração de IDEs/Editores populares
+# Evita que suas configurações pessoais do VS Code ou PyCharm sejam enviadas.
+.vscode/
+.idea/
+
+# Arquivos de sistema operacional
+# Ignora arquivos de metadados do macOS e Windows.
+.DS_Store
+Thumbs.db

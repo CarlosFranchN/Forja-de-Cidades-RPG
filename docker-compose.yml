@@ -1,0 +1,25 @@
+version: '3.8'
+
+# 'services' é a seção onde descrevemos cada contêiner da nossa aplicação.
+# No nosso caso, temos apenas um serviço, que chamaremos de 'forja-de-mundos'.
+services:
+  forja-de-mundos:
+    # 'build: .' diz ao Compose: "Construa a imagem usando o Dockerfile que está nesta mesma pasta (.)."
+    # Isso substitui o comando 'docker build -t ...'
+    build: .
+    
+    # 'image:' é um nome personalizado que daremos para a imagem construída.
+    image: forja-de-mundos-img
+
+    # 'ports:' mapeia a porta do nosso computador (host) para a porta do contêiner.
+    # Isso substitui o flag '-p 8501:8501'.
+    ports:
+      - "8501:8501"
+
+    # 'env_file:' especifica um arquivo para carregar as variáveis de ambiente.
+    # Isso substitui o flag '--env-file .env'.
+    env_file:
+      - .env
+
+    # 'container_name:' dá um nome fixo e amigável para o nosso contêiner quando ele estiver rodando.
+    container_name: forja-de-mundos-container
