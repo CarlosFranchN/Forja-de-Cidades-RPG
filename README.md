@@ -83,7 +83,7 @@ Para rodar este projeto localmente, você precisará ter o **Git** e o **Docker 
 ├── .gitignore            # Arquivos e pastas a serem ignorados pelo Git
 ├── Dockerfile            # Receita para construir a imagem Docker da aplicação
 ├── README.md             # Este arquivo
-├── app.py                # Código da interface Streamlit
+├── main.py                # Código da interface Streamlit
 ├── assistente_mestre.py    # Módulo com a lógica de IA e configuração do modelo
 ├── docker-compose.yml    # Arquivo de orquestração dos contêineres
 └── requirements.txt      # Lista de dependências Python
