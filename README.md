@@ -1,4 +1,4 @@
-# 🧙‍♂️ Forja de Mundos - Gerador de Cenários de RPG
+# Forja de Mundos - Gerador de Cenários de RPG
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.36-red?style=for-the-badge&logo=streamlit)
@@ -9,7 +9,7 @@ Uma aplicação web construída com Python, Streamlit e a API do Google Gemini p
 
 ---
 
-### ✨ Demonstração Rápida
+### Demonstração Rápida
 
 *(DICA: Grave um GIF de 15-20 segundos mostrando você preenchendo os campos e o resultado aparecendo na tela. Depois, adicione o GIF a esta pasta e troque o link abaixo)*
 
@@ -17,7 +17,7 @@ Uma aplicação web construída com Python, Streamlit e a API do Google Gemini p
 
 ---
 
-### 📖 Sobre o Projeto
+### Sobre o Projeto
 
 Como Mestre de RPG, sei que uma das tarefas mais demoradas e desafiadoras é a criação de cenários vibrantes e cheios de vida. A "Forja de Mundos" nasceu para resolver esse problema. Esta ferramenta utiliza o poder da Inteligência Artificial Generativa (através da API Gemini do Google) para construir a fundação de uma cidade em segundos.
 
@@ -25,7 +25,7 @@ Basta fornecer alguns parâmetros criativos, e a IA irá gerar uma descrição c
 
 ---
 
-### 🔥 Features
+### Features
 
 * **Geração de Cidades Detalhadas:** Cria descrições, história, governo, locais notáveis e ganchos de aventura.
 * **Adaptação a Sistemas:** O conteúdo gerado se adapta a diferentes sistemas de RPG (D&D 5e, Tormenta20, etc.), usando conceitos e termos relevantes.
@@ -37,7 +37,7 @@ Basta fornecer alguns parâmetros criativos, e a IA irá gerar uma descrição c
 
 ---
 
-### 🛠️ Tecnologias Utilizadas
+### Tecnologias Utilizadas
 
 * **Backend:** Python
 * **Interface Web:** Streamlit
@@ -47,7 +47,7 @@ Basta fornecer alguns parâmetros criativos, e a IA irá gerar uma descrição c
 
 ---
 
-### 🚀 Como Executar o Projeto
+### Como Executar o Projeto
 
 Para rodar este projeto localmente, você precisará ter o **Git** e o **Docker Desktop** instalados.
 
@@ -75,7 +75,7 @@ Para rodar este projeto localmente, você precisará ter o **Git** e o **Docker 
 
 ---
 
-### 📂 Estrutura do Projeto
+### Estrutura do Projeto
 
 ```
 .
@@ -91,7 +91,7 @@ Para rodar este projeto localmente, você precisará ter o **Git** e o **Docker 
 
 ---
 
-### 🔮 Próximos Passos e Melhorias
+### Próximos Passos e Melhorias
 
 * [ ] Gerador de NPCs (Personagens Não-Jogáveis) para as cidades criadas.
 * [ ] Gerador de Itens Mágicos ou Tavernas.
