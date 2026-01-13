@@ -1,7 +1,3 @@
-version: '3.8'
-
-# 'services' é a seção onde descrevemos cada contêiner da nossa aplicação.
-# No nosso caso, temos apenas um serviço, que chamaremos de 'forja-de-mundos'.
 services:
   forja-de-mundos:
     # 'build: .' diz ao Compose: "Construa a imagem usando o Dockerfile que está nesta mesma pasta (.)."

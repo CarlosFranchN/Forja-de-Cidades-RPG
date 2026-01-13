@@ -1,15 +1,39 @@
-# app.py
-# Este arquivo cuida APENAS da interface com o usuário usando Streamlit.
-
 import streamlit as st
-# Importando nossas funções do outro arquivo
 from assistente_mestre import config_model, gerar_background_cidade
 
 # --- CONSTRUÇÃO DA INTERFACE STREAMLIT ---
 
-st.set_page_config(page_title="Forja de Mundos RPG", page_icon="🧙‍♂️")
+st.set_page_config(
+    page_title="Forja de Mundos RPG", 
+    page_icon="🏰", 
+    layout="wide" 
+)
 st.title("🧙‍♂️ Forja de Mundos")
 st.subheader("Seu assistente para criar cidades de RPG inesquecíveis")
+
+# Estilos customizado
+st.markdown("""
+<style>
+    .stButton>button {
+        width: 100%;
+        background-color: #FF4B4B;
+        color: white;
+        font-weight: bold;
+    }
+    .big-font {
+        font-size:20px !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
+# GERENCIAMENTO DE ESTADO (MEMÓRIA) ---
+# Isso impede que o texto suma se o usuário interagir com a tela
+if 'ultimo_resultado' not in st.session_state:
+    st.session_state['ultimo_resultado'] = None
+if 'nome_cidade_atual' not in st.session_state:
+    st.session_state['nome_cidade_atual'] = ""
+
 
 # --- BARRA LATERAL (SIDEBAR) PARA ENTRADAS ---
 
@@ -57,3 +81,53 @@ if st.sidebar.button("Forjar Cenário!"):
             st.error("Houve uma falha na conexão com os planos superiores (erro na API).")
 else:
     st.info("Preencha os detalhes da sua cidade na barra lateral e clique em 'Forjar Cenário!' para começar sua aventura.")
+    
+
+st.title("🧙‍♂️ Forja de Mundos")
+st.markdown("---")
+
+
+if st.session_state['ultimo_resultado']:
+    
+    col_texto, col_download = st.columns([4, 1])
+    
+    with col_texto:
+        st.subheader(f"📜 Pergaminho: {st.session_state['nome_cidade_atual']}")
+    
+    with col_download:
+        st.download_button(
+            label="📥 Baixar Markdown",
+            data=st.session_state['ultimo_resultado'],
+            file_name=f"{st.session_state['nome_cidade_atual'].lower().replace(' ', '_')}.md",
+            mime="text/markdown"
+        )
+    
+    
+    with st.container(border=True):
+        st.markdown(st.session_state['ultimo_resultado'])
+
+
+else:
+    col1, col2 = st.columns(2)
+    with col1:
+        st.info("👈 **Comece pela esquerda!**\n\nPreencha os dados na barra lateral para gerar sua primeira cidade.")
+        st.markdown("""
+        ### O que esta ferramenta cria?
+        - 🏙️ **Descrição Sensorial** imersiva
+        - 📜 **Lore e História** profunda
+        - ⚖️ **Governo e Facções** políticas
+        - 📍 **Locais (NPCs)** prontos para usar
+        - ⚔️ **Ganchos de Aventura** mecânicos
+        """)
+    
+    with col2:
+        
+        st.markdown("### Exemplo de Criação:")
+        st.code("""
+        Cidade: Porto de Ferro
+        Sistema: D&D 5e
+        Vibe: Industrial e Mágica
+        
+        > "Porto de Ferro cheira a óleo de máquina e ozônio arcano. 
+        As ruas são iluminadas por lanternas de fogo-fátuo presas em engrenagens de latão..."
+        """, language="markdown")

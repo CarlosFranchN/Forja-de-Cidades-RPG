@@ -9,11 +9,10 @@ Uma aplicação web construída com Python, Streamlit e a API do Google Gemini p
 
 ---
 
-### Demonstração Rápida
+### 📸 Demonstração
 
-*(DICA: Grave um GIF de 15-20 segundos mostrando você preenchendo os campos e o resultado aparecendo na tela. Depois, adicione o GIF a esta pasta e troque o link abaixo)*
-
-![Demonstração da Aplicação](caminho/para/seu/demo.gif)
+*(Substitua esta linha por um printscreen ou GIF da sua aplicação rodando)*
+![Interface da Forja de Mundos](./img/forja-de-mundo-exemplo.png)
 
 ---
 
@@ -25,12 +24,20 @@ Basta fornecer alguns parâmetros criativos, e a IA irá gerar uma descrição c
 
 ---
 
+### 🧠 O Problema e a Solução
+
+**O Desafio:** Criar cidades para campanhas de RPG exige tempo. É preciso pensar em economia, política, geografia, NPCs e ganchos de aventura que façam sentido juntos. Muitas vezes, o Mestre sofre com o "bloqueio criativo" ou falta de tempo de preparação.
+
+**A Solução:** Uma ferramenta que atua como um "Co-Piloto Criativo". Ao invés de tabelas aleatórias genéricas, a Forja de Mundos usa a API do **Google Gemini** com engenharia de prompt avançada para conectar os pontos. Se você pede uma "Cidade no deserto feita de vidro", a IA entende as implicações lógicas disso e gera facções e rumores coerentes.
+
+---
+
 ### Features
 
 * **Geração de Cidades Detalhadas:** Cria descrições, história, governo, locais notáveis e ganchos de aventura.
 * **Adaptação a Sistemas:** O conteúdo gerado se adapta a diferentes sistemas de RPG (D&D 5e, Tormenta20, etc.), usando conceitos e termos relevantes.
 * **Interface Web Interativa:** Construído com Streamlit para uma experiência de usuário amigável e intuitiva.
-* **Cache Inteligente:** Utiliza o cache do Streamlit (`@st.cache_resource` e `@st.cache_data`) para otimizar a velocidade e reduzir custos de API em requisições repetidas.
+* **Gestão Eficiente de Recursos:** Utiliza o cache do Streamlit (@st.cache_resource) para carregar e configurar o modelo de IA apenas uma vez, garantindo performance fluida sem reconexões desnecessárias.
 * **Exportação de Cenários:** Permite baixar o background da cidade gerada em formato Markdown (`.md`) com um único clique.
 * **Conteinerizado com Docker:** O projeto é totalmente conteinerizado, garantindo um setup e execução consistentes em qualquer máquina com o Docker instalado.
 * **Orquestração Simplificada:** Utiliza `docker-compose` para que a aplicação possa ser iniciada com um único comando (`docker-compose up`).
@@ -43,7 +50,7 @@ Basta fornecer alguns parâmetros criativos, e a IA irá gerar uma descrição c
 * **Interface Web:** Streamlit
 * **Inteligência Artificial:** Google Gemini API
 * **Conteinerização:** Docker & Docker Compose
-* **Gerenciamento de Segredos:** python-dotenv
+* **Gerenciamento de Ambiente:** python-dotenv
 
 ---
 
@@ -75,27 +82,59 @@ Para rodar este projeto localmente, você precisará ter o **Git** e o **Docker 
 
 ---
 
+### Execução Manual (Python Tradicional)
+
+Caso prefira rodar diretamente no seu ambiente Python (sem Docker), siga estes passos:
+
+1.  **Crie e ative um ambiente virtual:**
+    ```bash
+    # Windows
+    python -m venv venv
+    .\venv\Scripts\activate
+
+    # Linux/Mac
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+2.  **Instale as dependências do projeto:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Configure a API Key:**
+    Certifique-se de ter criado o arquivo `.env` na raiz do projeto com sua chave:
+    `GOOGLE_API_KEY="sua_chave_aqui"`
+
+4.  **Inicie a aplicação:**
+    ```bash
+    streamlit run app.py
+    ```
 ### Estrutura do Projeto
 
 ```
-.
-├── .env                  # Arquivo de variáveis de ambiente (local, ignorado pelo Git)
-├── .gitignore            # Arquivos e pastas a serem ignorados pelo Git
-├── Dockerfile            # Receita para construir a imagem Docker da aplicação
-├── README.md             # Este arquivo
-├── main.py                # Código da interface Streamlit
-├── assistente_mestre.py    # Módulo com a lógica de IA e configuração do modelo
-├── docker-compose.yml    # Arquivo de orquestração dos contêineres
-└── requirements.txt      # Lista de dependências Python
+├── ⚙️ .gitignore
+├── 🐳 Dockerfile
+├── 📝 README.md
+├── 🐍 app.py
+├── 🐍 assistente_mestre.py
+├── ⚙️ docker-compose.yml
+├── 📄 requirements.txt
+└── 🐍 teste_models.py
 ```
 
 ---
 
 ### Próximos Passos e Melhorias
 
-* [ ] Gerador de NPCs (Personagens Não-Jogáveis) para as cidades criadas.
-* [ ] Gerador de Itens Mágicos ou Tavernas.
+* [ ] Geração de NPCs: Criar fichas de personagens completas baseadas na cidade.
+* [ ] Integração de Imagem: Usar IA para gerar o brasão ou mapa da cidade.
 * [ ] Integração com uma API de geração de imagens para criar um "retrato" da cidade.
-* [ ] Deploy da aplicação na nuvem (ex: Google Cloud Run, Streamlit Community Cloud).
+* Deploy: Hospedar no Streamlit Community Cloud.
 
 ---
+
+
+📝 Licença
+
+Desenvolvido por Carlos Franch - [Conecte-se](https://www.linkedin.com/in/carlos-neto-91191723a/)

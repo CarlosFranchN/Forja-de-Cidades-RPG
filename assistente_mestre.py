@@ -2,35 +2,58 @@ import os
 from dotenv import load_dotenv
 import google.generativeai as genai
 import streamlit as st
+from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
-# load_dotenv()
-# print(os.getenv("GOOGLE_API_KEY"))
+
+
 @st.cache_resource
 def config_model():
-    load_dotenv()
+    # api_key = st.secrets.get("GOOGLE_API_KEY")
+    api_key = None
     try:
+        if "GOOGLE_API_KEY" in st.secrets:
+            api_key = st.secrets["GOOGLE_API_KEY"]
+    except (FileNotFoundError, KeyError, AttributeError):
+        pass
+    except Exception:
+        pass
+    
+    if not api_key:
+        load_dotenv()
         api_key = os.getenv("GOOGLE_API_KEY")
-        if not api_key:
-            raise ValueError("API KEY nao foi encontrada!")
+        
+    if not api_key:
+        print("ERRO: API KEY não encontrada")
+        return None
+    
+    try:
         genai.configure(api_key=api_key)
         generation_config = {
             'temperature' : 1,
             'top_p': .95,
             'top_k' : 64,
-            'max_output_tokens': 1024,
+            'max_output_tokens': 2500,
             'candidate_count': 1,
             'response_mime_type': 'text/plain'
         }
+        safety_setting = {
+            HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+            HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+            HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+        }
+        
         model = genai.GenerativeModel(
-            model_name='gemini-1.5-flash',
-            generation_config=generation_config
+            model_name='gemini-2.5-flash',
+            generation_config=generation_config,
+            safety_settings=safety_setting
         )
-
         return model
     except Exception as e:
-        print(f"Erro na configuração: {e}")
+        print(f"Erro interno na configuração: {e}")
         return None
-@st.cache_resource  
+
+    
+
 def gerar_background_cidade(model, nome_cidade, sistema_rpg, localizacao_geral, vibe_principal, elemento_unico):
 
     prompt_final = f"""
