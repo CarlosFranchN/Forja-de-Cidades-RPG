@@ -11,7 +11,7 @@ Uma aplicação web construída com Python, Streamlit e a API do Google Gemini p
 
 ### 📸 Demonstração
 
-*(Substitua esta linha por um printscreen ou GIF da sua aplicação rodando)*
+
 ![Interface da Forja de Mundos](./img/forja-de-mundo-exemplo.png)
 
 ---

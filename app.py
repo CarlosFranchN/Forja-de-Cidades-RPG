@@ -11,7 +11,7 @@ st.set_page_config(
 st.title("🧙‍♂️ Forja de Mundos")
 st.subheader("Seu assistente para criar cidades de RPG inesquecíveis")
 
-# Estilos customizado
+
 st.markdown("""
 <style>
     .stButton>button {
